@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.upload.mapper.UserMapper">
+  <sql id="TABLE_CUSTOMER">
+    table_customer
+  </sql>
+
+  <sql id="TABLE_CUSTOMER_FIELD">
+    id,mobile,name,address,sex
+  </sql>
+
+  <sql id="TABLE_BOOK">
+    table_book
+  </sql>
+
+  <sql id="TABLE_BOOK_FIELD">
+    id,customer_id,price,category,name,author
+  </sql>
+
+  <select id="getUserById" resultType="com.example.upload.model.UserModel" parameterType="java.lang.String">
+    SELECT
+    <include refid="TABLE_CUSTOMER_FIELD" />
+    FROM
+    <include refid="TABLE_CUSTOMER" />
+    WHERE id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getBookById" resultType="com.example.upload.model.BookModel" parameterType="java.lang.String">
+    SELECT
+    <include refid="TABLE_BOOK_FIELD" />
+    FROM
+    <include refid="TABLE_BOOK" />
+    WHERE customer_id = #{id,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

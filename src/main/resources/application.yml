@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    #基本属性
+    url: jdbc:postgresql://localhost:5432/db_custom?userSSL=false
+    username: postgres
+    password: dingyi123
+    driver-class-name: org.postgresql.Driver
+    #druid相关配置
+    # druid:
+    #   #监控统计拦截的filters
+    #   filters: stat
+    #   initialSize: 5
+    #   minIdle: 10
+    #   maxActive: 20
+    #   maxWait: 60000
+    #   timeBetweenEvictionRunMillis: 60000
+    #   minEvictableIdleTimeMillis: 40000
+    #   validationQuery: SELECT 'x'
+    #   testWhileIdle: true
+    #   testOnBorrow: false
+    #   testOnReturn: false
+    #   poolPreparedStatements: true
+    #   maxPoolPreparedStatementPerConnectionSize: 10
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.example.upload.model # 注意：对应实体类的路径

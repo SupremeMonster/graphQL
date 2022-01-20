@@ -1,0 +1,26 @@
+schema {
+  query: Query
+}
+type User {
+  id: ID!
+  address: String
+  name: String
+  mobile: String
+  sex: String
+  book: Book
+}
+
+type Book {
+  id: ID!
+  customerId: ID!
+  price: Float
+  category: String
+  author: String
+  name: String
+}
+
+type Query {
+  getUserById(id: ID!): User
+  getBookById(id: ID!): Book
+  getUserWithBookById(id: ID!): User
+}
